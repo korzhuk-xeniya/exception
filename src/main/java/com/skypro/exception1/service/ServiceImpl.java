@@ -10,13 +10,13 @@ public class ServiceImpl implements Service {
 
     private static Pattern regex = Pattern.compile("^[A-Za-z0-9_]{0,20}$");
 
-    public static void registrationOnWebsite(String login, String password, String confirmPassword) {
+    public static void registrationOnWebsite(String login, String password, String confirmPassword) throws WrongPasswordException {
         checkLogin(login);
         checkPassword(password);
         checkEqualsPassword(password, confirmPassword);
     }
 
-    private static void checkLogin(String login) {
+    private static void checkLogin(String login) throws WrongLoginException {
         if (!login.matches(regex.pattern())) {
             throw new WrongLoginException(" Login должен содержать в себе только латинские буквы, цифры и знак подчеркивания " +
                     "и быть не длиннее 20 символов");
@@ -30,9 +30,9 @@ public class ServiceImpl implements Service {
         }
     }
 
-    private static void checkEqualsPassword(String password, String confirmPassword) {
+    private static void checkEqualsPassword(String password, String confirmPassword) throws WrongPasswordException {
         if (!password.equals(confirmPassword)) {
-            throw new WrongLoginException(" Пароли не совпадают!");
+            throw new WrongPasswordException(" Пароли не совпадают!");
         }
     }
 }

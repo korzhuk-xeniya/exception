@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public interface Service {
     static Pattern regex = Pattern.compile("^[A-Za-z0-9_]{0,20}$");
 
-    static void registrationOnWebsite(String login, String password, String confirmPassword) {
+    static void registrationOnWebsite(String login, String password, String confirmPassword) throws WrongPasswordException {
         checkLogin(login);
         checkPassword(password);
         checkEqualsPassword(password, confirmPassword);
