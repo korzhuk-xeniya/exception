@@ -8,6 +8,7 @@ public class ExceptionsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ExceptionsApplication.class, args);
+
     }
 
 }
