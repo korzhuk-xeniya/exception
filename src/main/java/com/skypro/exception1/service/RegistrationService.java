@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public interface RegistrationService {
 
 
-    void registrationOnWebsite(String login, String password, String confirmPassword) throws WrongPasswordException ;
+    void registrationOnWebsite(String login, String password, String confirmPassword) throws WrongPasswordException;
 
 
 }

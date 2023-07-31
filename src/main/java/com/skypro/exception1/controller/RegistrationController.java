@@ -18,14 +18,14 @@ public class RegistrationController {
 
     @GetMapping
 
-    public  String registrationOnWebsite(@RequestParam("login") String login,
-                                               @RequestParam("password") String password,
-                                               @RequestParam("confirmPassword") String confirmPassword) {
+    public String registrationOnWebsite(@RequestParam("login") String login,
+                                        @RequestParam("password") String password,
+                                        @RequestParam("confirmPassword") String confirmPassword) {
         try {
             service.registrationOnWebsite(login, password, confirmPassword);
 
         } catch (WrongLoginException | WrongPasswordException ex) {
-            return(ex.getMessage());
+            return (ex.getMessage());
         }
         return "Регистрация пройдена успешно";
     }
